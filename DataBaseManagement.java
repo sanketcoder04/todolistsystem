@@ -28,7 +28,6 @@ public class DataBaseManagement {
 	
 	private void selectOperation() throws SQLException {
 		Scanner sc = new Scanner(System.in);
-		
 		while(true) {
 			System.out.println("Enter Which types of Operation you want to perform : Insert Task | Delete Tasks | Update Task | Show Task | Delete Account | Exit ");
 			String operation = sc.nextLine();
@@ -130,28 +129,28 @@ public class DataBaseManagement {
 		String choice = sc.nextLine();
 		
 		String query = "SHOW TABLES LIKE '" + user + "'";
-        Statement statement = connection.createStatement();
-        ResultSet set = statement.executeQuery(query);
+        	Statement statement = connection.createStatement();
+        	ResultSet set = statement.executeQuery(query);
 		
 		if(choice.equalsIgnoreCase("CREATE")) {
-            if(set.next()) {
-            	System.out.println("ACCOUNT CREATION UNSUCCESSFUL....ACCOUNT ALREADY EXISTS, SELECT OPERATIONS AT EXISTING ACCOUNT");
-            	selectOperation();
-            }
-            else {
-            	System.out.println("ACCOUNT CREATION SUCCESSFUL....");
-            	createTable();
-            }
+            		if(set.next()) {
+            			System.out.println("ACCOUNT CREATION UNSUCCESSFUL....ACCOUNT ALREADY EXISTS, SELECT OPERATIONS AT EXISTING ACCOUNT");
+            			selectOperation();
+            		}
+            		else {
+            			System.out.println("ACCOUNT CREATION SUCCESSFUL....");
+            			createTable();
+            		}
 		}
 		else if(choice.equalsIgnoreCase("LOGIN")) {
-            if (set.next()) {
-                System.out.println("LOGIN SUCCESSFUL....");
-                selectOperation();
-            } 
-            else {
-                System.out.println("LOGIN UNSUCCESSFUL....ACCOUNT DOES NOT EXISTS, CREATE A NEW ACCOUNT");
-                createTable();
-            }
+            		if (set.next()) {
+                		System.out.println("LOGIN SUCCESSFUL....");
+                		selectOperation();
+            		} 
+            		else {
+                		System.out.println("LOGIN UNSUCCESSFUL....ACCOUNT DOES NOT EXISTS, CREATE A NEW ACCOUNT");
+                		createTable();
+            		}
 		}
 		else {
 			System.out.println("Invalid Option Selected...");
