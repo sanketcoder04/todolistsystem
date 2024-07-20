@@ -11,20 +11,20 @@ public class ListMain {
 		String name = sc.nextLine();
 		DataBaseManagement system = new DataBaseManagement(name);
 		try {
-            system.createConnection();
-            system.checkAccount();
-        } 
+            		system.createConnection();
+            		system.checkAccount();
+        	} 
 		catch (ClassNotFoundException e) {
-            System.out.println("Database driver not found: " + e.getMessage());
-        } 
+            		System.out.println("Database driver not found: " + e.getMessage());
+        	} 
 		catch (SQLException e) {
-            System.out.println("A SQL error occurred: " + e.getMessage());
-        } 
+            		System.out.println("A SQL error occurred: " + e.getMessage());
+        	} 
 		catch (Exception e) {
-            System.out.println("An unexpected error occurred: " + e.getMessage());
-        } 
+            		System.out.println("An unexpected error occurred: " + e.getMessage());
+        	} 
 		finally {
-            sc.close();
-        }
+            		sc.close();
+        	}
 	}
 }
